@@ -12,10 +12,9 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: battle
-  
   syncPolicy:
-    syncOption:
+    syncOptions:
     - CreateNamespace=true
     automated:
-      selfheal: true
-      prune: true 
+      selfHeal: true
+      prune: true

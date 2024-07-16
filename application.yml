@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: battle-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/MathanbabuMoorthi/argocd.git
+    targetRevision: HEAD
+    path: root
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: battle
+  
+  syncPolicy:
+    syncOption:
+    - CreateNamespace=true
+    automated:
+      selfheal: true
+      prune: true 
